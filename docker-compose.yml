@@ -1,0 +1,30 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:////data/sirius_rent.db
+      SECRET_KEY: ${SECRET_KEY:-dev-only-set-SECRET_KEY-in-env}
+    volumes:
+      - sirius_data:/data
+      - sirius_uploads:/app/static/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  test:
+    build: .
+    profiles: ["test"]
+    environment:
+      DATABASE_URL: sqlite:////tmp/test.db
+      SECRET_KEY: test-secret
+    command: ["pytest", "-v"]
+
+volumes:
+  sirius_data:
+  sirius_uploads:

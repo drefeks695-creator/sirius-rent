@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+venv/
+.env
+*.db
+.pytest_cache/
+htmlcov/
+.coverage
+*.zip
+sirius-rent/
+static/uploads/avatars/*
+!static/uploads/avatars/.gitkeep
+static/uploads/rooms/*
+!static/uploads/rooms/.gitkeep
+presentation.pptx
+*.pptx~

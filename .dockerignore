@@ -1,0 +1,15 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.db
+.env
+.git/
+.gitignore
+*.md
+start.bat
+scripts/
+sirius_rent.db

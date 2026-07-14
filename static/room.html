@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сириус.Аренда — Пространство</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="style.css?v=26">
+</head>
+<body>
+  <div class="sun-glow"></div>
+
+  <nav class="site-nav">
+    <a class="nav-brand" href="index.html">Сириус.Аренда</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Пространства</a>
+      <a href="booking.html" class="nav-link nav-auth-only">Бронь</a>
+      <a href="admin.html" class="nav-link nav-admin-only hidden">Админ</a>
+      <a href="login.html" class="nav-link" id="login-link">Войти</a>
+      <a href="profile.html" class="nav-profile hidden" title="Профиль" aria-label="Профиль">
+        <img class="nav-profile-img" src="/ui/avatars/1.svg" alt="">
+      </a>
+      <button id="logout-btn" class="btn btn-soft btn-sm hidden" type="button">Выйти</button>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <a href="index.html" class="back-link">← Все пространства</a>
+
+    <article class="room-detail panel" id="room-detail">
+      <p class="empty">Загрузка...</p>
+    </article>
+
+    <section class="panel panel-sea room-schedule-panel">
+      <div class="panel-head panel-head-split">
+        <div>
+          <h2>Календарь занятости</h2>
+          <p id="room-hours" class="room-hours-label">Загрузка...</p>
+        </div>
+      </div>
+      <div class="room-calendar-layout">
+        <div class="room-calendar-card">
+          <div class="room-calendar-nav">
+            <button type="button" id="cal-prev" class="cal-nav-btn" aria-label="Предыдущий месяц">←</button>
+            <h3 id="cal-month-label" class="cal-month-label">...</h3>
+            <button type="button" id="cal-next" class="cal-nav-btn" aria-label="Следующий месяц">→</button>
+          </div>
+          <div id="room-calendar-legend"></div>
+          <div id="room-calendar-grid" class="room-calendar-grid"></div>
+        </div>
+        <div id="room-day-detail" class="room-day-detail">
+          <div class="room-day-detail-head">
+            <h3 id="room-day-title" class="cal-day-title">Выберите день</h3>
+            <p class="cal-day-hint">Нажмите на дату, чтобы увидеть расписание</p>
+          </div>
+          <div class="room-day-section">
+            <p class="cal-section-label">Занятость по часам</p>
+            <div id="room-day-timeline"></div>
+          </div>
+          <div class="room-day-section">
+            <p class="cal-section-label">Бронирования</p>
+            <div id="room-day-bookings"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel-sea">
+      <div class="panel-head">
+        <h2>Проверить и забронировать</h2>
+      </div>
+      <div id="room-blocked-notice" class="availability-box is-busy hidden">
+        Бронирование этого пространства временно закрыто администратором
+      </div>
+      <form id="room-check-form" class="stack">
+        <label>
+          <span>Дата и время</span>
+          <input type="text" id="room-start" class="datetime-input" placeholder="Выберите дату и время" readonly required>
+        </label>
+        <div class="time-quick" tabindex="0">
+          <div class="time-duration-controls">
+            <button type="button" class="chip chip-step" data-step="-30" aria-label="Уменьшить длительность">−</button>
+            <span class="time-duration-current" data-duration-label>Выбрано: 1 час</span>
+            <button type="button" class="chip chip-step" data-step="30" aria-label="Увеличить длительность">+</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-sea">Проверить доступность</button>
+      </form>
+      <fieldset id="booking-contact" class="booking-contact hidden">
+        <legend>Данные для бронирования</legend>
+        <p class="hint">Укажите ФИО, телефон и почту — они нужны для подтверждения брони</p>
+        <label>
+          <span>ФИО</span>
+          <input type="text" id="contact-full-name" minlength="3" maxlength="200" placeholder="Фамилия Имя" autocomplete="name">
+        </label>
+        <label>
+          <span>Телефон</span>
+          <input type="tel" id="contact-phone" minlength="10" maxlength="30" placeholder="+7 (999) 123-45-67" autocomplete="tel">
+        </label>
+        <label>
+          <span>Почта</span>
+          <input type="email" id="contact-email" maxlength="200" placeholder="mail@example.com" autocomplete="email">
+        </label>
+      </fieldset>
+      <div id="availability-result" class="availability-box hidden"></div>
+      <div id="room-suggestions" class="hidden"></div>
+      <button id="book-room-btn" class="btn btn-main hidden" type="button">Забронировать</button>
+      <p id="room-message" class="status"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>НТУ «Сириус» · Сириус.Аренда</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+  <script src="js/common.js?v=25"></script>
+  <script src="js/features.js"></script>
+  <script src="js/room-calendar.js?v=2"></script>
+  <script src="js/datetime-picker.js?v=6"></script>
+  <script src="js/suggestions.js?v=3"></script>
+  <script src="js/room.js"></script>
+</body>
+</html>

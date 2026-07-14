@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сириус.Аренда — Администрирование</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=34">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="nav-brand" href="index.html">Сириус.Аренда</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Пространства</a>
+      <a href="booking.html" class="nav-link nav-auth-only">Бронь</a>
+      <a href="admin.html" class="nav-link active nav-admin-only hidden">Админ</a>
+      <a href="profile.html" class="nav-link nav-auth-only">Профиль</a>
+      <a href="login.html" class="nav-link" id="login-link">Войти</a>
+      <a href="profile.html" class="nav-profile hidden" title="Профиль" aria-label="Профиль">
+        <img class="nav-profile-img" src="/ui/avatars/1.svg" alt="">
+      </a>
+      <button id="logout-btn" class="btn btn-soft btn-sm hidden" type="button">Выйти</button>
+    </div>
+  </nav>
+
+  <main class="page-main page-admin">
+    <section class="panel">
+      <div class="panel-head panel-head-split">
+        <h2>Список бронирований</h2>
+        <span id="admin-report-generated" class="admin-count"></span>
+      </div>
+      <div id="admin-report-rooms" class="admin-report-rooms">
+        <p class="empty">Загрузка отчёта...</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Новое пространство</h2>
+      </div>
+      <form id="admin-room-form" class="stack admin-form">
+        <label>
+          <span>Название</span>
+          <input type="text" id="room-name" required maxlength="200" placeholder="Переговорная А-102">
+        </label>
+        <label>
+          <span>Вместимость</span>
+          <input type="number" id="room-capacity" required min="1" max="10000" placeholder="12">
+        </label>
+        <label>
+          <span>Описание</span>
+          <textarea id="room-description" rows="3" maxlength="2000" placeholder="Кратко о пространстве"></textarea>
+        </label>
+        <label>
+          <span>Оборудование</span>
+          <input type="text" id="room-equipment" placeholder="проектор, Wi-Fi, доска">
+        </label>
+        <p class="hint">Оборудование через запятую — появится в фильтрах и на карточке</p>
+        <div class="admin-image-upload">
+          <span class="admin-image-label">Фото пространства</span>
+          <div class="admin-image-picker">
+            <label class="btn btn-soft btn-sm admin-image-btn" for="room-image">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 20h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Выбрать файл
+            </label>
+            <input type="file" id="room-image" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+            <span id="room-image-name" class="admin-image-name">Файл не выбран</span>
+          </div>
+        </div>
+        <p class="hint">JPG, PNG, WEBP или GIF до 5 МБ — отобразится на карточке пространства</p>
+        <div id="room-image-preview" class="admin-image-preview hidden" aria-hidden="true">
+          <img id="room-image-preview-img" src="" alt="Превью фото пространства">
+          <button type="button" class="btn btn-soft btn-sm" id="room-image-clear">Убрать фото</button>
+        </div>
+        <button type="submit" class="btn btn-main">Добавить пространство</button>
+        <p id="admin-room-msg" class="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head panel-head-split">
+        <h2>Пространства</h2>
+        <span id="admin-rooms-count" class="admin-count"></span>
+      </div>
+      <ul id="admin-rooms-list" class="admin-list">
+        <li class="empty">Загрузка...</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head panel-head-split">
+        <h2>Пользователи</h2>
+        <span id="admin-users-count" class="admin-count"></span>
+      </div>
+      <ul id="admin-users-list" class="admin-list">
+        <li class="empty">Загрузка...</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head panel-head-split">
+        <h2>Активные бронирования</h2>
+        <span id="admin-bookings-count" class="admin-count"></span>
+      </div>
+      <ul id="admin-bookings-list" class="admin-list">
+        <li class="empty">Загрузка...</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>НТУ «Сириус» · админка</p>
+  </footer>
+
+  <script src="js/common.js?v=25"></script>
+  <script src="js/features.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

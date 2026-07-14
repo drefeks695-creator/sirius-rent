@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сириус.Аренда — Пространства</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=32">
+</head>
+<body class="page-index">
+  <header class="home-header">
+    <div class="home-header-inner">
+      <div class="home-header-tools">
+        <button type="button" class="home-icon-btn" data-theme-toggle aria-label="Контрастная тема" title="Контрастная тема">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <button type="button" class="home-icon-btn" id="home-search-btn" aria-label="Поиск" title="Поиск">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 20l-4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <a class="home-logo" href="index.html" aria-label="Сириус.Аренда">
+        <svg class="home-logo-svg" viewBox="0 0 56 34" aria-hidden="true">
+          <rect x="0" y="16" width="8" height="18" rx="1" fill="currentColor"/>
+          <rect x="2" y="20" width="2" height="2" fill="#fff"/>
+          <rect x="5" y="24" width="2" height="2" fill="#fff"/>
+          <rect x="12" y="10" width="8" height="24" rx="1" fill="currentColor"/>
+          <rect x="14" y="14" width="2" height="2" fill="#fff"/>
+          <rect x="17" y="18" width="2" height="2" fill="#fff"/>
+          <rect x="14" y="22" width="2" height="2" fill="#fff"/>
+          <rect x="24" y="2" width="8" height="32" rx="1" fill="currentColor"/>
+          <rect x="26" y="6" width="2" height="2" fill="#fff"/>
+          <rect x="29" y="10" width="2" height="2" fill="#fff"/>
+          <rect x="26" y="14" width="2" height="2" fill="#fff"/>
+          <rect x="29" y="18" width="2" height="2" fill="#fff"/>
+          <rect x="36" y="10" width="8" height="24" rx="1" fill="currentColor"/>
+          <rect x="38" y="14" width="2" height="2" fill="#fff"/>
+          <rect x="41" y="18" width="2" height="2" fill="#fff"/>
+          <rect x="48" y="16" width="8" height="18" rx="1" fill="currentColor"/>
+          <rect x="50" y="20" width="2" height="2" fill="#fff"/>
+        </svg>
+      </a>
+
+      <div class="home-header-actions">
+        <nav class="home-desktop-nav" aria-label="Навигация">
+          <a href="index.html" class="home-desktop-link active">Пространства</a>
+          <a href="booking.html" class="home-desktop-link nav-auth-only">Бронь</a>
+          <a href="profile.html" class="home-desktop-link nav-auth-only">Профиль</a>
+          <a href="admin.html" class="home-desktop-link nav-admin-only hidden">Админ</a>
+        </nav>
+        <a href="login.html" class="home-login" id="login-link">Войти</a>
+        <a href="profile.html" class="home-profile nav-profile hidden" title="Профиль" aria-label="Профиль">
+          <img class="nav-profile-img" src="/ui/avatars/1.svg" alt="">
+        </a>
+        <button type="button" class="home-icon-btn home-menu-btn" id="home-menu-btn" aria-label="Меню" aria-expanded="false" aria-controls="home-mobile-nav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav id="home-mobile-nav" class="home-mobile-nav hidden" aria-label="Навигация">
+      <a href="index.html" class="home-mobile-link active">Пространства</a>
+      <a href="booking.html" class="home-mobile-link nav-auth-only">Бронь</a>
+      <a href="profile.html" class="home-mobile-link nav-auth-only">Профиль</a>
+      <a href="admin.html" class="home-mobile-link nav-admin-only hidden">Админ</a>
+      <button id="logout-btn" class="home-mobile-link home-mobile-logout hidden" type="button">Выйти</button>
+    </nav>
+  </header>
+
+  <section class="home-hero">
+    <div class="home-hero-bg" role="presentation" aria-hidden="true">
+      <img
+        class="home-hero-bg-img"
+        src="/ui/images/hero-campus.png?v=3"
+        alt=""
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
+      >
+    </div>
+    <div class="home-hero-layout">
+      <div class="home-hero-aside">
+        <p class="home-hero-tag">Сириус.Аренда</p>
+        <p class="home-hero-lead">Бронирование аудиторий и переговорных кампуса</p>
+        <a href="#spaces" class="home-hero-outline">Смотреть</a>
+      </div>
+      <div class="home-hero-card">
+        <h1 class="home-hero-title">Бронирование пространств «Сириус»</h1>
+        <p class="home-hero-text">Каталог залов с фильтрами, календарь занятости и онлайн-бронирование.</p>
+        <a href="pick.html" class="btn home-hero-cta">Подобрать пространство</a>
+      </div>
+    </div>
+    <div class="home-hero-bar">
+      <span>НТУ «Сириус»</span>
+    </div>
+  </section>
+
+  <main class="page-main" id="spaces">
+    <section class="panel">
+      <div class="panel-head panel-head-split">
+        <div>
+          <p id="rooms-greeting" class="rooms-greeting">Загрузка...</p>
+          <p id="rooms-tip" class="rooms-tip"></p>
+        </div>
+      </div>
+      <div class="filters row">
+        <label class="filter-grow">
+          <span>Поиск</span>
+          <input type="search" id="filter-search" placeholder="Название или оборудование">
+        </label>
+        <label class="filter-capacity">
+          <span>Мест от</span>
+          <input type="number" id="filter-capacity" min="1" placeholder="8">
+        </label>
+        <label class="filter-capacity">
+          <span>Мест до</span>
+          <input type="number" id="filter-capacity-max" min="1" placeholder="50">
+        </label>
+      </div>
+      <div class="filter-quick">
+        <button type="button" class="chip filter-chip" data-equipment="проектор">проектор</button>
+        <button type="button" class="chip filter-chip" data-equipment="Wi-Fi">Wi-Fi</button>
+        <button type="button" class="chip filter-chip" data-equipment="доска">доска</button>
+        <button type="button" class="chip filter-chip" data-equipment="микрофон">микрофон</button>
+        <button type="button" class="chip filter-chip" id="favorites-only-btn" data-fav="1">★ избранное</button>
+      </div>
+      <ul id="rooms-list" class="room-grid"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>НТУ «Сириус» · Сириус.Аренда</p>
+  </footer>
+
+  <script src="js/common.js?v=25"></script>
+  <script src="js/features.js"></script>
+  <script src="js/rooms.js?v=26"></script>
+</body>
+</html>

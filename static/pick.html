@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сириус.Аренда — Подбор пространства</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=28">
+</head>
+<body class="page-pick">
+  <header class="home-header">
+    <div class="home-header-inner">
+      <div class="home-header-tools">
+        <button type="button" class="home-icon-btn" data-theme-toggle aria-label="Контрастная тема" title="Контрастная тема">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </div>
+      <a class="home-logo" href="index.html" aria-label="Сириус.Аренда">
+        <svg class="home-logo-svg" viewBox="0 0 56 34" aria-hidden="true">
+          <rect x="0" y="16" width="8" height="18" rx="1" fill="currentColor"/>
+          <rect x="12" y="10" width="8" height="24" rx="1" fill="currentColor"/>
+          <rect x="24" y="2" width="8" height="32" rx="1" fill="currentColor"/>
+          <rect x="36" y="10" width="8" height="24" rx="1" fill="currentColor"/>
+          <rect x="48" y="16" width="8" height="18" rx="1" fill="currentColor"/>
+        </svg>
+      </a>
+      <div class="home-header-actions">
+        <nav class="home-desktop-nav" aria-label="Навигация">
+          <a href="index.html" class="home-desktop-link">Пространства</a>
+          <a href="booking.html" class="home-desktop-link nav-auth-only">Бронь</a>
+          <a href="profile.html" class="home-desktop-link nav-auth-only">Профиль</a>
+        </nav>
+        <a href="login.html" class="home-login" id="login-link">Войти</a>
+        <a href="profile.html" class="home-profile nav-profile hidden" title="Профиль" aria-label="Профиль">
+          <img class="nav-profile-img" src="/ui/avatars/1.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="pick-hero">
+    <div class="pick-hero-glow" aria-hidden="true"></div>
+    <div class="pick-hero-inner">
+      <p class="pick-hero-kicker">Подборки</p>
+      <h1 class="pick-hero-title">Популярные пространства</h1>
+      <p class="pick-hero-text">Залы кампуса по типу мероприятия</p>
+      <div class="pick-tabs" role="tablist" aria-label="Подборки">
+        <button type="button" class="pick-tab active" data-collection="popular" role="tab" aria-selected="true">Популярные</button>
+        <button type="button" class="pick-tab" data-collection="meeting" role="tab">Встречи</button>
+        <button type="button" class="pick-tab" data-collection="study" role="tab">Учёба</button>
+        <button type="button" class="pick-tab" data-collection="event" role="tab">Мероприятия</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="page-main pick-main">
+    <section class="pick-section">
+      <div class="pick-section-head">
+        <div>
+          <h2 id="pick-collection-title">Самые популярные</h2>
+          <p id="pick-collection-subtitle" class="pick-section-lead">Чаще всего бронируют</p>
+        </div>
+        <a href="index.html" class="btn btn-soft pick-all-link">Все пространства</a>
+      </div>
+
+      <ul id="pick-results" class="pick-showcase"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>НТУ «Сириус» · Сириус.Аренда</p>
+  </footer>
+
+  <script src="js/common.js?v=25"></script>
+  <script src="js/features.js"></script>
+  <script src="js/pick.js?v=3"></script>
+</body>
+</html>

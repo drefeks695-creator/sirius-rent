@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сириус.Аренда — Профиль</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sun-glow"></div>
+
+  <nav class="site-nav">
+    <a class="nav-brand" href="index.html">Сириус.Аренда</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Пространства</a>
+      <a href="booking.html" class="nav-link nav-auth-only">Бронь</a>
+      <a href="admin.html" class="nav-link nav-admin-only hidden">Админ</a>
+      <a href="login.html" class="nav-link" id="login-link">Войти</a>
+      <a href="profile.html" class="nav-profile active" title="Профиль" aria-label="Профиль">
+        <img id="nav-avatar" class="nav-profile-img" src="/ui/avatars/1.svg" alt="">
+      </a>
+      <button id="logout-btn" class="btn btn-soft btn-sm" type="button">Выйти</button>
+    </div>
+  </nav>
+
+  <main class="page-main page-narrow">
+    <section class="panel profile-card">
+      <div class="profile-header">
+        <img id="profile-avatar" class="profile-avatar" src="/ui/avatars/1.svg" alt="Аватар">
+        <div>
+          <h2 id="profile-title">Профиль</h2>
+          <p class="tile-meta" id="profile-role">Пользователь</p>
+        </div>
+      </div>
+
+      <form id="profile-form" class="stack">
+        <label>
+          <span>Ник</span>
+          <input type="text" id="profile-username" minlength="2" maxlength="100" autocomplete="username" required>
+        </label>
+        <label>
+          <span>ФИО</span>
+          <input type="text" id="profile-full-name" minlength="3" maxlength="200" autocomplete="name" placeholder="Фамилия Имя">
+        </label>
+        <label>
+          <span>Телефон</span>
+          <input type="tel" id="profile-phone" minlength="10" maxlength="30" autocomplete="tel" placeholder="+7 (999) 123-45-67">
+        </label>
+        <label>
+          <span>Почта</span>
+          <input type="email" id="profile-email" maxlength="200" autocomplete="email" placeholder="mail@example.com">
+        </label>
+
+        <div class="avatar-picker">
+          <span class="time-quick-label">Аватар</span>
+          <div class="avatar-upload">
+            <label class="btn btn-soft avatar-upload-btn">
+              Загрузить своё фото
+              <input type="file" id="avatar-upload" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+            </label>
+            <p class="hint avatar-upload-hint">JPG, PNG, WEBP или GIF до 2 МБ</p>
+          </div>
+          <div id="avatar-custom" class="avatar-custom"></div>
+          <div id="avatar-options" class="avatar-grid"></div>
+        </div>
+
+        <button type="submit" class="btn btn-main">Сохранить</button>
+      </form>
+      <p id="profile-message" class="status"></p>
+    </section>
+
+    <section class="panel panel-sea">
+      <div class="panel-head">
+        <h2>★ Избранное</h2>
+      </div>
+      <ul id="favorites-list" class="tiles compact">
+        <li class="empty">Загрузка...</li>
+      </ul>
+    </section>
+
+    <section class="panel panel-sea">
+      <div class="panel-head">
+        <h2>Мои бронирования</h2>
+      </div>
+      <ul id="bookings-list" class="tiles compact"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>НТУ «Сириус» · Сириус.Аренда</p>
+  </footer>
+
+  <script src="js/common.js?v=25"></script>
+  <script src="js/features.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

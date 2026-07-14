@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сириус.Аренда — Вход</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-home">
+  <div class="sun-glow"></div>
+
+  <main class="home-slide">
+    <header class="hero hero-home">
+      <div class="hero-inner">
+        <span class="badge">Кампус Сириус</span>
+        <h1>Сириус.Аренда</h1>
+        <p>Войдите, чтобы забронировать пространство</p>
+      </div>
+    </header>
+
+    <section class="panel panel-login home-auth">
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-tab="login">Вход</button>
+        <button type="button" class="auth-tab" data-tab="register">Регистрация</button>
+      </div>
+
+      <form id="login-form" class="stack auth-panel active" data-panel="login">
+        <label>
+          <span>Логин</span>
+          <input type="text" id="login-username" autocomplete="username" required>
+        </label>
+        <label>
+          <span>Пароль</span>
+          <input type="password" id="login-password" autocomplete="current-password" required>
+        </label>
+        <button type="submit" class="btn btn-main">Войти</button>
+      </form>
+
+      <form id="register-form" class="stack auth-panel" data-panel="register">
+        <label>
+          <span>Ник</span>
+          <input type="text" id="register-username" minlength="2" maxlength="100" autocomplete="username" required>
+        </label>
+        <label>
+          <span>Пароль</span>
+          <input type="password" id="register-password" minlength="8" autocomplete="new-password" required>
+        </label>
+        <label>
+          <span>Повторите пароль</span>
+          <input type="password" id="register-password-confirm" minlength="8" autocomplete="new-password" required>
+        </label>
+        <button type="submit" class="btn btn-main">Создать аккаунт</button>
+      </form>
+
+      <p id="auth-status" class="status"></p>
+      <p class="hint home-back"><a href="index.html">← К пространствам</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>НТУ «Сириус» · Сириус.Аренда</p>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
